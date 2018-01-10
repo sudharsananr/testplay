@@ -1,0 +1,33 @@
+#Ansible updated
+
+TYPE="Ethernet"
+BOOTPROTO="none"
+NAME={{ ansible_default_ipv4.alias }}
+UUID="83b45f02-b240-4a23-8bd8-31b0847b040a"
+DEVICE={{ ansible_default_ipv4.interface }}
+ONBOOT="yes"
+IPADDR={{ ansible_default_ipv4.address }}
+NETMASK=255.255.255.0
+
+
+#localhost | SUCCESS => {
+#    "ansible_facts": {
+#        "ansible_all_ipv4_addresses": [
+#            "192.168.122.140"
+#        ], 
+#        "ansible_default_ipv4": {
+#            "address": "192.168.122.140", 
+#            "alias": "eth0", 
+#            "broadcast": "192.168.122.255", 
+#            "gateway": "192.168.122.1", 
+#            "interface": "eth0", 
+#            "macaddress": "52:54:00:22:79:f6", 
+##            "mtu": 1500, 
+#            "netmask": "255.255.255.0", 
+#            "network": "192.168.122.0", 
+#            "type": "ether"
+#        }
+#    }, 
+#    "changed": false, 
+#    "failed": false
+#}

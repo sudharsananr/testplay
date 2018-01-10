@@ -1,0 +1,8 @@
+---
+- hosts: check
+  become_user: test
+  become: yes
+  gather_facts: yes
+  roles:
+  - { role: test }  
+  

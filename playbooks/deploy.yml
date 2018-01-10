@@ -1,0 +1,34 @@
+---
+- hosts: 127.0.0.1
+  user: ansible
+  sudo: yes
+  gather_facts: yes
+  tasks:
+  - name: test
+    template: src=ifcfg-eth0.j2 dest=/tmp/ifcfg-eth0
+#    raw: "cat /etc/hostname"
+#    when: ansible_os_family == "RedHat"
+#    register: oup
+#  - debug: var=oup
+
+#localhost | SUCCESS => {
+#    "ansible_facts": {
+#        "ansible_all_ipv4_addresses": [
+ #           "192.168.122.140"
+  #      ], 
+  #      "ansible_default_ipv4": {
+ #           "address": "192.168.122.140", 
+   #         "alias": "eth0", 
+    #        "broadcast": "192.168.122.255", 
+     #       "gateway": "192.168.122.1", 
+      #      "interface": "eth0", 
+       #     "macaddress": "52:54:00:22:79:f6", 
+        #    "mtu": 1500, 
+         #   "netmask": "255.255.255.0", 
+#            "network": "192.168.122.0", 
+ #           "type": "ether"
+ #       }
+ #   }, 
+ #   "changed": false, 
+ #   "failed": false
+#
