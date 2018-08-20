@@ -1,0 +1,13 @@
+---  
+- name: etc/resolv
+  copy: src=resolv.conf dest=/etc/resolv.conf user=root group=root mode=0644
+   
+- name: /etc/sysconfig/network
+  copy: src=network dest=/etc/sysconfig/network user=root group=root mode=0644
+  
+- name: ifcfg-eth0
+  template: src=ifcfg-eth0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth0 user=root group=root mode=0644
+  nofity: restart network
+
+- name: restart network
+  service: name=network start=started enabled=yes

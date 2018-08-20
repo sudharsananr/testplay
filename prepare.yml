@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: False
+  remote_user: test
+
+  tasks:
+  - name: authkey
+    authorized_key: user=test exclusive=no key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

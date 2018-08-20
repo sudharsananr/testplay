@@ -1,0 +1,22 @@
+---
+- hosts: 127.0.0.1
+#  user: ansible
+  become: true
+  become_method: sudo
+  become_user: ansible
+  gather_facts: yes
+  tasks:
+  - name: copy
+    copy: src={{ item.src }} dest={{ item.dest }}
+      user: root
+      group: root
+      backup: yes
+    with_items:
+      - { src: 'files/network', dest: '/etc/sysconfig/network' }
+      - { src: 'files/resolv.conf' dest: '/etc/resolv.conf' }
+  - name: test
+    template: src=ifcfg-eth0.j2 dest=/etc/sysconfig/network-scripts/ifcfg-eth0
+      backup: yes
+     notify:
+      service: network
+
