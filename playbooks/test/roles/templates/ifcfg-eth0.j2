@@ -1,0 +1,10 @@
+#Ansible updated
+
+TYPE="Ethernet"
+BOOTPROTO="none"
+NAME={{ ansible_default_ipv4.alias }}
+UUID="83b45f02-b240-4a23-8bd8-31b0847b040a"
+DEVICE={{ ansible_default_ipv4.interface }}
+ONBOOT="yes"
+IPADDR={{ ansible_default_ipv4.address }}
+NETMASK=255.255.255.0
